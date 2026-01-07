@@ -608,6 +608,13 @@ export const LeadDetailModal = ({
             </TabsContent>
 
             <TabsContent value="activity" className="mt-4">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="font-medium">Activity Timeline</h3>
+                <Button size="sm" onClick={() => setShowActivityLogModal(true)}>
+                  <Plus className="h-4 w-4 mr-1" />
+                  Log Activity
+                </Button>
+              </div>
               <LeadActivityTimeline key={refreshKey} leadId={lead.id} />
             </TabsContent>
 
