@@ -657,10 +657,7 @@ const Meetings = () => {
                         {isColumnVisible('subject') && (
                           <TableCell className="px-4 py-3">
                             <button 
-                              onClick={() => {
-                                setEditingMeeting(meeting);
-                                setShowModal(true);
-                              }}
+                              onClick={() => setViewingMeeting(meeting)}
                               className="text-primary hover:underline font-medium text-left truncate"
                             >
                               <HighlightedText text={meeting.subject} highlight={searchTerm} />
