@@ -140,6 +140,10 @@ export const FormFieldRenderer = ({ field, value, onChange, onLeadSelect, error 
   const renderDatePicker = (fieldName: string, dateValue: any) => {
     const date = dateValue ? new Date(dateValue) : undefined;
     
+    // Only disable future dates for historical/past-oriented fields
+    const pastOnlyFields = ['rfq_received_date', 'signed_contract_date', 'implementation_start_date'];
+    const disableFutureDates = pastOnlyFields.includes(fieldName);
+    
     return (
       <Popover>
         <PopoverTrigger asChild>
@@ -167,7 +171,7 @@ export const FormFieldRenderer = ({ field, value, onChange, onLeadSelect, error 
                 onChange(fieldName, '');
               }
             }}
-            disabled={(date) => date > new Date()} // Disable future dates
+            disabled={disableFutureDates ? (date) => date > new Date() : undefined}
             initialFocus
             className={cn("p-3 pointer-events-auto")}
           />
