@@ -553,9 +553,9 @@ export const ListView = ({
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All Lead Owners</SelectItem>
-              {availableOptions.leadOwners.map((owner) => (
-                <SelectItem key={owner} value={owner}>
-                  {owner}
+              {availableOptions.leadOwners.map((ownerId) => (
+                <SelectItem key={ownerId} value={ownerId}>
+                  {displayNames[ownerId] || ownerId}
                 </SelectItem>
               ))}
             </SelectContent>
